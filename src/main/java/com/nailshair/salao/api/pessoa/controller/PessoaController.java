@@ -1,8 +1,8 @@
-package com.nailshair.salao.api.arquiteturabase.pessoa.controller;
+package com.nailshair.salao.api.pessoa.controller;
 
-import com.nailshair.salao.api.arquiteturabase.pessoa.entity.Pessoa;
-import com.nailshair.salao.api.arquiteturabase.pessoa.repository.PessoaRepository;
-import com.nailshair.salao.api.arquiteturabase.pessoa.service.PessoaService;
+import com.nailshair.salao.api.pessoa.entity.Pessoa;
+import com.nailshair.salao.api.pessoa.repository.PessoaRepository;
+import com.nailshair.salao.api.pessoa.service.PessoaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

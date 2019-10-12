@@ -1,7 +1,7 @@
-package com.nailshair.salao.api.arquiteturabase.pessoa.service;
+package com.nailshair.salao.api.pessoa.service;
 
-import com.nailshair.salao.api.arquiteturabase.pessoa.entity.Pessoa;
-import com.nailshair.salao.api.arquiteturabase.pessoa.repository.PessoaRepository;
+import com.nailshair.salao.api.pessoa.entity.Pessoa;
+import com.nailshair.salao.api.pessoa.repository.PessoaRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

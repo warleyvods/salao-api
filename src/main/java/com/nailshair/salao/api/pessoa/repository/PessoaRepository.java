@@ -1,6 +1,6 @@
-package com.nailshair.salao.api.arquiteturabase.pessoa.repository;
+package com.nailshair.salao.api.pessoa.repository;
 
-import com.nailshair.salao.api.arquiteturabase.pessoa.entity.Pessoa;
+import com.nailshair.salao.api.pessoa.entity.Pessoa;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

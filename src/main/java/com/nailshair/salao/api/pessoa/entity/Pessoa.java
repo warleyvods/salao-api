@@ -1,11 +1,10 @@
-package com.nailshair.salao.api.arquiteturabase.pessoa.entity;
+package com.nailshair.salao.api.pessoa.entity;
 
 import com.nailshair.salao.api.arquiteturabase.entidade.EntidadeAbstrata;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
