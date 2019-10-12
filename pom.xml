@@ -129,6 +129,14 @@
             <scope>test</scope>
         </dependency>
 
+        <!--H2 DataBase-->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.197</version>
+            <scope>test</scope>
+        </dependency>
+
         <!--Swagger-->
         <dependency>
             <groupId>io.springfox</groupId>
