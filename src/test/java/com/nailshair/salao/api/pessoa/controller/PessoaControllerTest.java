@@ -32,7 +32,6 @@ public class PessoaControllerTest {
 
     public Pessoa pessoaPreenchida() {
         Pessoa pessoa = new Pessoa();
-        pessoa.setId(10L);
         pessoa.setNome("Nome Teste");
         pessoa.setCpf("01234567891");
         pessoa.setDataNascimento("23/03/1994");
@@ -42,12 +41,21 @@ public class PessoaControllerTest {
 
     public Pessoa pessoaPreenchida2() {
         Pessoa pessoa = new Pessoa();
-        pessoa.setId(10L);
-        pessoa.setNome("Nome Teste2");
+        pessoa.setNome("nome Teste2");
         pessoa.setCpf("01234567894");
         pessoa.setDataNascimento("00/00/2133");
         pessoa.setTelefone("62 99241572");
         return pessoa;
+    }
+
+    @Test
+    public void buscarPeloNomeIgnorandoLetrasMaiusculasEMinusculas() {
+        Pessoa pessoa1 = pessoaRepository.save(pessoaPreenchida());
+        Pessoa pessoa2 = pessoaRepository.save(pessoaPreenchida2());
+        List<Pessoa> pessoaList = pessoaRepository.findByNomeIgnoreCaseContaining("nome");
+        System.out.println("test");
+        //verificar com mais calma depois
+        assertThat(pessoaList.size()).isEqualTo(3);
     }
 
     @Test
@@ -76,20 +84,27 @@ public class PessoaControllerTest {
     }
 
     @Test
+    public void atualizarPessoas() {
+        Pessoa pessoaSalva = pessoaRepository.save(pessoaPreenchida());
+        pessoaSalva.setNome("Teste2");
+        pessoaSalva.setCpf("Teste2");
+        pessoaSalva.setDataNascimento("Teste");
+        pessoaSalva.setTelefone("Teste");
+        pessoaSalva = this.pessoaRepository.save(pessoaSalva);
+        pessoaSalva = this.pessoaRepository.findOne(pessoaSalva.getId());
+        assertThat(pessoaSalva.getNome()).isEqualTo("Teste2");
+        assertThat(pessoaSalva.getCpf()).isEqualTo("Teste2");
+        assertThat(pessoaSalva.getDataNascimento()).isEqualTo("Teste");
+        assertThat(pessoaSalva.getTelefone()).isEqualTo("Teste");
+    }
+
+    @Test
     public void removerPessoas() {
         Pessoa pessoaSalvo = pessoaRepository.save(pessoaPreenchida());
         pessoaRepository.delete(pessoaSalvo);
         assertThat(pessoaService.buscarPessoaPorId(pessoaSalvo.getId())).isNull();
     }
 
-    @Test
-    public void atualizarPessoas() {
-
-    }
-
-    @Test
-    public void buscarPeloNome() {
-    }
 
 
     @Test
@@ -98,9 +113,9 @@ public class PessoaControllerTest {
         Pessoa pessoa = new Pessoa();
         pessoa.setNome(null);
         pessoa.setCpf("03965478924");
-        pessoa.setDataNascimento("");
-        pessoa.setTelefone("");
-
+        pessoa.setDataNascimento("teste");
+        pessoa.setTelefone("62992412741");
+        pessoaRepository.save(pessoa);
     }
 
     @Test
@@ -111,30 +126,38 @@ public class PessoaControllerTest {
         pessoa.setCpf(null);
         pessoa.setDataNascimento("23/03/1994");
         pessoa.setTelefone("62992412741");
+        pessoaRepository.save(pessoa);
 
     }
 
     @Test
-    public void naoDeveDeixarPersistirComDataDeNascimentoNulo() throws Exception {
+    public void naoDeveDeixarPersistirComDataDeNascimentoNulo() {
         erroEsperado.expect(DataIntegrityViolationException.class);
         Pessoa pessoa = new Pessoa();
         pessoa.setNome("Teste Nome");
         pessoa.setCpf("03964879126");
         pessoa.setDataNascimento(null);
         pessoa.setTelefone("62992412741");
+        pessoaRepository.save(pessoa);
 
     }
 
     @Test
-    public void naoDeveDeixarPersistirComTelefoneNulo() throws Exception {
+    public void naoDeveDeixarPersistirComTelefoneNulo() {
         erroEsperado.expect(DataIntegrityViolationException.class);
         Pessoa pessoa = new Pessoa();
         pessoa.setNome("Teste Nome");
         pessoa.setCpf("03964879126");
         pessoa.setDataNascimento("23/03/1994");
-        pessoa.setTelefone("62992412741");
-
+        pessoa.setTelefone(null);
+        pessoaRepository.save(pessoa);
     }
 
+    @Test
+    public void naoDeveDeixarPersistirPessoaNula() {
+        erroEsperado.expect(DataIntegrityViolationException.class);
+        Pessoa pessoa = new Pessoa();
+        pessoaRepository.save(pessoa);
+    }
 
 }

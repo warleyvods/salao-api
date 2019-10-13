@@ -10,7 +10,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-
+/**
+ * Entidade Pessoa
+ *
+ * @author Warley Vinicius
+ * @since 13/10/2019
+ */
 @Data
 @Entity
 @Table(name = "pessoa")

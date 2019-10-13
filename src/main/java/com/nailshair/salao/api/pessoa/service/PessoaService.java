@@ -6,6 +6,12 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Service responsável por pessoas
+ *
+ * @author Warley Vinicius
+ * @since 13/10/2019
+ */
 @Service
 public class PessoaService {
 
@@ -15,6 +21,7 @@ public class PessoaService {
     public PessoaService(PessoaRepository pessoaRepository) {
         this.pessoaRepository = pessoaRepository;
     }
+
 
     public Pessoa atualizarPessoa(Long id, Pessoa pessoa) {
         Pessoa pessoaSalva = buscarPessoaPorId(id);

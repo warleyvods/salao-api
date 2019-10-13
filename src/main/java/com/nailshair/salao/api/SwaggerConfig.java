@@ -14,8 +14,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 public class SwaggerConfig {
 
-    private static String SWAGGER_API_VERSION = "1.0.0";
-    private static String LICENSE_TEXT = "License to Nails Hair";
+    private static String swaggerApiVersion = "1.0.0";
+    private static String licenseText = "License to Nails Hair";
     private static String title = "Nails Hair API RESTful\n";
     private static String description = "Documentação da API";
 
@@ -23,8 +23,8 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title(title)
                 .description(description)
-                .license(LICENSE_TEXT)
-                .version(SWAGGER_API_VERSION)
+                .license(licenseText)
+                .version(swaggerApiVersion)
                 .build();
     }
 
