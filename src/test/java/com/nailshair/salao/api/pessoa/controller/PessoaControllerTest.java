@@ -105,8 +105,6 @@ public class PessoaControllerTest {
         assertThat(pessoaService.buscarPessoaPorId(pessoaSalvo.getId())).isNull();
     }
 
-
-
     @Test
     public void naoDeveDeixarPersistirComNomeNulo() {
         erroEsperado.expect(DataIntegrityViolationException.class);
@@ -125,18 +123,6 @@ public class PessoaControllerTest {
         pessoa.setNome("Teste Nome");
         pessoa.setCpf(null);
         pessoa.setDataNascimento("23/03/1994");
-        pessoa.setTelefone("62992412741");
-        pessoaRepository.save(pessoa);
-
-    }
-
-    @Test
-    public void naoDeveDeixarPersistirComDataDeNascimentoNulo() {
-        erroEsperado.expect(DataIntegrityViolationException.class);
-        Pessoa pessoa = new Pessoa();
-        pessoa.setNome("Teste Nome");
-        pessoa.setCpf("03964879126");
-        pessoa.setDataNascimento(null);
         pessoa.setTelefone("62992412741");
         pessoaRepository.save(pessoa);
 

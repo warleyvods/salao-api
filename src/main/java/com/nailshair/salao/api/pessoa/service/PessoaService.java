@@ -22,7 +22,13 @@ public class PessoaService {
         this.pessoaRepository = pessoaRepository;
     }
 
-
+    /**
+     *
+     *
+     * @param id
+     * @param pessoa
+     * @return
+     */
     public Pessoa atualizarPessoa(Long id, Pessoa pessoa) {
         Pessoa pessoaSalva = buscarPessoaPorId(id);
         BeanUtils.copyProperties(pessoa, pessoaSalva, "id");

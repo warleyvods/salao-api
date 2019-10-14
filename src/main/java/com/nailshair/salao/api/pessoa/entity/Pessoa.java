@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,11 +33,36 @@ public class Pessoa extends EntidadeAbstrata {
     private String cpf;
 
     @ApiModelProperty(notes = "Data de Nascimento da Pessoa/Cliente")
-    @Column(name = "data_nascimento", nullable = false)
+    @Column(name = "data_nascimento")
     private String dataNascimento;
 
     @ApiModelProperty(notes = "Telefone da Pessoa/Cliente")
     @Column(name = "telefone", length = 15, nullable = false)
     private String telefone;
+
+    @ApiModelProperty(notes = "Instagram da pessoa/Cliente")
+    @Column(name = "instagram", length = 15)
+    private String instagram;
+
+    @ApiModelProperty(notes = "Indicacao do cliente")
+    @Column(name = "indicacao", length = 50)
+    private String indicacao;
+
+    @Email
+    @ApiModelProperty(notes = "Email do  Cliente/Pessoa")
+    @Column(name = "email")
+    private String email;
+
+    @ApiModelProperty(notes = "Endereço do Cliente/Pessoa")
+    @Column(name = "endereco", length = 30)
+    private String endereco;
+
+    @ApiModelProperty(notes = "CEP do Cliente/Pessoa")
+    @Column(name = "cep", length = 15)
+    private String cep;
+
+    @ApiModelProperty(notes = "Logradouro do Cliente/Pessoa")
+    @Column(name = "logradouro", length = 50)
+    private String logradouro;
 
 }

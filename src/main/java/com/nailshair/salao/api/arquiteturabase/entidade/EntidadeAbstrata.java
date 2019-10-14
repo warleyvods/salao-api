@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
+/**
+ * Abstração da entidade para receber Id
+ */
 @Data
 @MappedSuperclass
 @EqualsAndHashCode
