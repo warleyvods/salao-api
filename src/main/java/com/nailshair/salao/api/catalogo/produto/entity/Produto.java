@@ -1,8 +1,8 @@
 package com.nailshair.salao.api.catalogo.produto.entity;
 
-import com.nailshair.salao.api.utils.categoria.Categoria;
-import com.nailshair.salao.api.utils.categoria.Marca;
-import com.nailshair.salao.api.utils.categoria.Unidade;
+import com.nailshair.salao.api.catalogo.categoria.entity.Categoria;
+import com.nailshair.salao.api.catalogo.marca.entity.Marca;
+import com.nailshair.salao.api.catalogo.unidade.entity.Unidade;
 import com.nailshair.salao.api.utils.entidade.EntidadeAbstrata;
 import com.nailshair.salao.api.utils.enums.TipoItem;
 import io.swagger.annotations.ApiModelProperty;
@@ -29,21 +29,21 @@ public class Produto extends EntidadeAbstrata {
     private String nome;
 
     @ApiModelProperty(notes = "Tipo de item do produto")
-    @Column(name="tipo_item", nullable = false)
+    @Column(name="tipo_item")
     @Enumerated(EnumType.STRING)
     private TipoItem tipoItem;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @ApiModelProperty(notes = "Tipo de unidade do produto")
     @JoinColumn(name = "tipo_unidade_id", nullable = false)
     private Unidade unidade;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @ApiModelProperty(notes = "Tipo de categoria do produto")
     @JoinColumn(name = "produto_id")
     private Categoria categoria;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @ApiModelProperty(notes = "Marca de Produtos")
     @JoinColumn(name = "id_marca_produto")
     private Marca marca;
