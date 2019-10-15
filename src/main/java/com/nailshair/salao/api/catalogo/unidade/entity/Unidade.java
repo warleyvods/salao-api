@@ -6,9 +6,11 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Data
 @Entity
+@Table(name = "unidade")
 @EqualsAndHashCode(callSuper = false)
 public class Unidade extends EntidadeAbstrata {
 

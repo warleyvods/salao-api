@@ -9,6 +9,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
+@Table(name = "servico")
 @EqualsAndHashCode(callSuper = false)
 public class Servico extends EntidadeAbstrata {
 

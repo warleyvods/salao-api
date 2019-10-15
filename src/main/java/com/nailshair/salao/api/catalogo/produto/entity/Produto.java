@@ -1,7 +1,10 @@
 package com.nailshair.salao.api.catalogo.produto.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.nailshair.salao.api.catalogo.categoria.entity.Categoria;
 import com.nailshair.salao.api.catalogo.marca.entity.Marca;
+import com.nailshair.salao.api.catalogo.preco.entity.Preco;
 import com.nailshair.salao.api.catalogo.unidade.entity.Unidade;
 import com.nailshair.salao.api.utils.entidade.EntidadeAbstrata;
 import com.nailshair.salao.api.utils.enums.TipoItem;
@@ -13,6 +16,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
+@Table(name = "produto")
 @EqualsAndHashCode(callSuper = false)
 public class Produto extends EntidadeAbstrata {
 
@@ -28,6 +32,7 @@ public class Produto extends EntidadeAbstrata {
     @Column(name = "nome_produto", nullable = false)
     private String nome;
 
+
     @ApiModelProperty(notes = "Tipo de item do produto")
     @Column(name="tipo_item")
     @Enumerated(EnumType.STRING)
@@ -35,7 +40,7 @@ public class Produto extends EntidadeAbstrata {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @ApiModelProperty(notes = "Tipo de unidade do produto")
-    @JoinColumn(name = "tipo_unidade_id", nullable = false)
+    @JoinColumn(name = "id_tipo_un_medida", nullable = false)
     private Unidade unidade;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -51,5 +56,10 @@ public class Produto extends EntidadeAbstrata {
     @ApiModelProperty(notes = "Modelo de Produtos")
     @Column(name = "modelo_produto")
     private String modelo;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @ApiModelProperty(notes = "Preco do produto")
+    @JoinColumn(name = "id_preco_produto")
+    private Preco precoProduto;
 
 }

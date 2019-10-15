@@ -5,16 +5,14 @@ import com.nailshair.salao.api.venda.cliente.entity.Pessoa;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Data
 @Entity
 @EqualsAndHashCode(callSuper = false)
 public class Funcionario extends Pessoa {
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 

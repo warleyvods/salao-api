@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Api(tags="Produto Controller")
 @RestController
@@ -46,7 +47,7 @@ public class ProdutoController {
      */
     @GetMapping
     @ApiOperation(value = "Listar todas as Produtos")
-    public ResponseEntity<?> listarProduto() {
+    public ResponseEntity<List<Produto>> listarProduto() {
         return new ResponseEntity<>(produtoRepository.findAll(), HttpStatus.OK);
     }
 
@@ -89,7 +90,18 @@ public class ProdutoController {
         return new ResponseEntity<>(produtoSalva, HttpStatus.OK);
     }
 
-    //TODO buscar por nome
+    /**
+     *  Realiza a busca das Produto por nome ignorando letras maiusculas ou minusculas
+     *
+     * @param nome nome a ser preenchido
+     * @return entidade Pessoa encontrada
+     */
+    @GetMapping("/buscar-por-nome/{produto}")
+    @ApiOperation(value = "Buscar Produto por Nome Ignorando Case Sensitive")
+    public ResponseEntity<List<Produto>> buscarPeloNome(@ApiParam(value = "Nome para pesquisa") @PathVariable String nome) {
+        produtoRepository.findByNomeIgnoreCaseContaining(nome);
+        return new ResponseEntity<>(produtoRepository.findByNomeIgnoreCaseContaining(nome), HttpStatus.OK);
+    }
     
     
 }

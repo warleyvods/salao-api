@@ -6,13 +6,11 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 
 @Entity
 @Data
+@Table(name = "usuario")
 @EqualsAndHashCode(callSuper = false)
 public class Usuario extends EntidadeAbstrata {
 
@@ -32,10 +30,14 @@ public class Usuario extends EntidadeAbstrata {
     @Column(name = "tel_usuario")
     private String telefone;
 
-    @Column(name = "tipo_perfil")
+
     @ApiModelProperty(notes = "Tipo Perfil do usuario")
+    @Column(name = "tipo_perfil")
     @Enumerated(EnumType.STRING)
     private TipoPerfil tipoPerfil;
+
+    @ApiModelProperty(notes = "Booleano de ativacao do vendedor")
+    @Column(name = "vendedor")
     private Boolean vendedor;
 
     @ApiModelProperty(notes = "Login do usuario")

@@ -6,13 +6,15 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Data
+@Table(name = "marca")
 @EqualsAndHashCode(callSuper = false)
 public class Marca extends EntidadeAbstrata {
 
-    @Column(name = "marca")
+    @Column(name = "nome_marca")
     private String nome;
 
 }

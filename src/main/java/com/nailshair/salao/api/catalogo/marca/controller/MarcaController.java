@@ -3,6 +3,7 @@ package com.nailshair.salao.api.catalogo.marca.controller;
 import com.nailshair.salao.api.catalogo.marca.entity.Marca;
 import com.nailshair.salao.api.catalogo.marca.repository.MarcaRepository;
 import com.nailshair.salao.api.catalogo.marca.service.MarcaService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+
+@Api(tags="Marcas Controller")
+@RestController
+@RequestMapping("/marcas")
 public class MarcaController {
 
 

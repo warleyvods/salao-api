@@ -22,8 +22,7 @@ import java.util.List;
  */
 @Data
 @Entity
-@Table(name = "pessoa")
-@ApiModel(description = "Pessoa/Clientes do Salao Api")
+@ApiModel(description = "Pessoas/Clientes do Salao API")
 @EqualsAndHashCode(callSuper = false)
 public class Pessoa extends EntidadeAbstrata {
 
@@ -60,11 +59,11 @@ public class Pessoa extends EntidadeAbstrata {
     private String celular;
 
     @Email
-    @ApiModelProperty(notes = "Email do  Cliente/Pessoa")
+    @ApiModelProperty(notes = "Email do Cliente/Pessoa")
     @Column(name = "email")
     private String email;
 
-    @ApiModelProperty(notes = "Site do  Cliente/Pessoa")
+    @ApiModelProperty(notes = "Site do Cliente/Pessoa")
     @Column(name = "site")
     private String site;
 
@@ -76,22 +75,22 @@ public class Pessoa extends EntidadeAbstrata {
     @Column(name = "observacoes")
     private String observacoes;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id")
     @ApiModelProperty(notes = "Endereco da Pessoa/Cliente")
     private List<Endereco> endereco;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "contato_id")
     @ApiModelProperty(notes = "Contatos da Pessoa/Cliente")
     private List<Contato> contato;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "dados_bancarios_id")
     @ApiModelProperty(notes = "Dados Bancarios da Pessoa/Cliente")
     private List<DadosBancarios> dadosBancarios;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "historico_id")
     @ApiModelProperty(notes = "Dados Historicos da Pessoa/Cliente")
     private List<Historico> historico;

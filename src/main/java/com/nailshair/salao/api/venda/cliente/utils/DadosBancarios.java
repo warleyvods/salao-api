@@ -7,9 +7,11 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Data
 @Entity
+@Table(name = "dados_bancarios")
 @EqualsAndHashCode(callSuper = false)
 public class DadosBancarios extends EntidadeAbstrata {
 

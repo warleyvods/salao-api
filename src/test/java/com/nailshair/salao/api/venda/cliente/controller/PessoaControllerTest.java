@@ -1,4 +1,5 @@
 package com.nailshair.salao.api.venda.cliente.controller;
+import com.google.common.collect.Lists;
 
 import com.nailshair.salao.api.NailshairApiApplication;
 import com.nailshair.salao.api.venda.cliente.entity.Pessoa;
@@ -33,19 +34,43 @@ public class PessoaControllerTest {
 
     public Pessoa pessoaPreenchida() {
         Pessoa pessoa = new Pessoa();
-        pessoa.setNome("Nome Teste");
-        pessoa.setCpf("01234567891");
-        pessoa.setDataNascimento("23/03/1994");
-        pessoa.setTelefone("62 992412741");
+        pessoa.setAtivo(true);
+        pessoa.setNome("Nome teste");
+        pessoa.setCpf("03964879126");
+        pessoa.setRg("5572575");
+        pessoa.setEmissorRg("SSP");
+        pessoa.setUfRg("GO");
+        pessoa.setTelefone("62992412741");
+        pessoa.setCelular("62992412741");
+        pessoa.setEmail("warleyvods@gmail.com");
+        pessoa.setSite("www.google.com");
+        pessoa.setDataNascimento("20/03/1994");
+        pessoa.setObservacoes("Observacoes teste");
+        pessoa.setEndereco(Lists.newArrayList());
+        pessoa.setContato(Lists.newArrayList());
+        pessoa.setDadosBancarios(Lists.newArrayList());
+        pessoa.setHistorico(Lists.newArrayList());
         return pessoa;
     }
 
     public Pessoa pessoaPreenchida2() {
         Pessoa pessoa = new Pessoa();
-        pessoa.setNome("nome Teste2");
-        pessoa.setCpf("01234567894");
-        pessoa.setDataNascimento("00/00/2133");
-        pessoa.setTelefone("62 99241572");
+        pessoa.setAtivo(true);
+        pessoa.setNome("Nome teste 2");
+        pessoa.setCpf("03964879126");
+        pessoa.setRg("5572575");
+        pessoa.setEmissorRg("SSP");
+        pessoa.setUfRg("SP");
+        pessoa.setTelefone("62992412741");
+        pessoa.setCelular("62992412741");
+        pessoa.setEmail("warleyvods@gmail.com");
+        pessoa.setSite("www.youtube.com");
+        pessoa.setDataNascimento("20/03/1994");
+        pessoa.setObservacoes("Observacoes teste");
+        pessoa.setEndereco(Lists.newArrayList());
+        pessoa.setContato(Lists.newArrayList());
+        pessoa.setDadosBancarios(Lists.newArrayList());
+        pessoa.setHistorico(Lists.newArrayList());
         return pessoa;
     }
 

@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 
 @Api(tags="Categoria Controller")
@@ -29,10 +30,10 @@ public class CategoriaController {
         this.categoriaService = categoriaService;
     }
     /**
-     * Cria uma nova mercadoriaa
+     * Cria uma nova categoria
      *
      * @param categoria a ser preenchida e salva
-     * @return mercadoria salva com status 200
+     * @return categoria salva com status 200
      */
     @PostMapping
     @Transactional
@@ -43,18 +44,18 @@ public class CategoriaController {
     }
 
     /**
-     * Realiza a busca  de todas as mercadorias listando-as
+     * Realiza a busca  de todas as categorias listando-as
      *
-     * @return Lista de mercadorias com status 200
+     * @return Lista de categorias com status 200
      */
     @GetMapping
     @ApiOperation(value = "Listar todas as Categorias")
-    public ResponseEntity<?> listarCategoria() {
+    public ResponseEntity<List<Categoria>> listarCategoria() {
         return new ResponseEntity<>(categoriaRepository.findAll(), HttpStatus.OK);
     }
 
     /**
-     * Realiza a busca de mercadorias por id
+     * Realiza a busca de categorias por id
      *
      * @param id a ser pesquisado
      * @return Categoria que foi buscada por id
@@ -79,11 +80,11 @@ public class CategoriaController {
     }
 
     /**
-     * Realiza a atualização de dados da Entidade mercadoria.
+     * Realiza a atualização de dados da Entidade categoria.
      *
      * @param id id a ser atualizado
-     * @param categoria body mercadoria preenchida para a atualização
-     * @return mercadoria atualizada com status 200
+     * @param categoria body categoria preenchida para a atualização
+     * @return categoria atualizada com status 200
      */
     @PutMapping("{id}")
     @ApiOperation(value = "Atualizar categoria por Id")
