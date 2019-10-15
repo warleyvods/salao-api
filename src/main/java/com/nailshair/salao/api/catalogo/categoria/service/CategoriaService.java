@@ -1,6 +1,5 @@
 package com.nailshair.salao.api.catalogo.categoria.service;
 
-import com.nailshair.salao.api.catalogo.categoria.repository.CategoriaRepository;
 import com.nailshair.salao.api.catalogo.categoria.entity.Categoria;
 import com.nailshair.salao.api.catalogo.categoria.repository.CategoriaRepository;
 import org.springframework.beans.BeanUtils;

@@ -3,6 +3,7 @@ package com.nailshair.salao.api.configuracao.empresa.funcionario.controller;
 import com.nailshair.salao.api.configuracao.empresa.funcionario.entity.Funcionario;
 import com.nailshair.salao.api.configuracao.empresa.funcionario.repository.FuncionarioRepository;
 import com.nailshair.salao.api.configuracao.empresa.funcionario.service.FuncionarioService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+
+@Api(tags="Funcionarios Controller")
+@RestController
+@RequestMapping("/funcionarios")
 public class FuncionarioController {
 
     private final FuncionarioRepository funcionarioRepository;
