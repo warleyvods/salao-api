@@ -1,5 +1,6 @@
 package com.nailshair.salao.api.configuracao.empresa.usuario.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nailshair.salao.api.configuracao.empresa.usuario.TipoPerfil;
 import com.nailshair.salao.api.utils.entidade.EntidadeAbstrata;
 import io.swagger.annotations.ApiModelProperty;
@@ -47,5 +48,11 @@ public class Usuario extends EntidadeAbstrata {
     @ApiModelProperty(notes = "Senha do usuario")
     @Column(name = "senha")
     private String senha;
+
+    @JsonIgnore
+    @Transient
+    public boolean isInativo() {
+        return !this.ativo;
+    }
 
 }

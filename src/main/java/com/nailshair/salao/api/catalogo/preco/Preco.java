@@ -1,4 +1,4 @@
-package com.nailshair.salao.api.catalogo.preco.entity;
+package com.nailshair.salao.api.catalogo.preco;
 
 import com.nailshair.salao.api.utils.entidade.EntidadeAbstrata;
 import io.swagger.annotations.ApiModelProperty;
@@ -6,14 +6,13 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 @Data
-@Entity
-@Table(name = "preco")
+@Embeddable
 @EqualsAndHashCode(callSuper = false)
-public class Preco extends EntidadeAbstrata {
+public class Preco {
 
     @ApiModelProperty(notes = "Preço total")
     @Column(name = "preco_total")
@@ -28,7 +27,7 @@ public class Preco extends EntidadeAbstrata {
     private Double precoFrete;
 
     @ApiModelProperty(notes = "Booleano de Produto")
-    @Column(name = "ativo", nullable = false)
+    @Column(name = "outrosCustos")
     private Double outrosCustos;
 
 }

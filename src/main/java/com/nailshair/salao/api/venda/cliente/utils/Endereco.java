@@ -1,5 +1,6 @@
 package com.nailshair.salao.api.venda.cliente.utils;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nailshair.salao.api.utils.entidade.EntidadeAbstrata;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -7,6 +8,7 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Transient;
 
 @Data
 @Entity
@@ -40,5 +42,11 @@ public class Endereco extends EntidadeAbstrata {
     @ApiModelProperty(notes = "Bairro do Cliente/Pessoa")
     @Column(name = "bairro", length = 50)
     private String bairro;
+
+    @JsonIgnore
+    @Transient
+    public boolean isInativo() {
+        return !this.ativo;
+    }
 
 }

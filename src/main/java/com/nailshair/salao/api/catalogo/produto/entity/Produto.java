@@ -1,10 +1,9 @@
 package com.nailshair.salao.api.catalogo.produto.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.nailshair.salao.api.catalogo.categoria.entity.Categoria;
 import com.nailshair.salao.api.catalogo.marca.entity.Marca;
-import com.nailshair.salao.api.catalogo.preco.entity.Preco;
+import com.nailshair.salao.api.catalogo.preco.Preco;
 import com.nailshair.salao.api.catalogo.unidade.entity.Unidade;
 import com.nailshair.salao.api.utils.entidade.EntidadeAbstrata;
 import com.nailshair.salao.api.utils.enums.TipoItem;
@@ -32,7 +31,6 @@ public class Produto extends EntidadeAbstrata {
     @Column(name = "nome_produto", nullable = false)
     private String nome;
 
-
     @ApiModelProperty(notes = "Tipo de item do produto")
     @Column(name="tipo_item")
     @Enumerated(EnumType.STRING)
@@ -40,7 +38,7 @@ public class Produto extends EntidadeAbstrata {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @ApiModelProperty(notes = "Tipo de unidade do produto")
-    @JoinColumn(name = "id_tipo_un_medida", nullable = false)
+    @JoinColumn(name = "tipo_un_medida_id", nullable = false)
     private Unidade unidade;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -50,16 +48,20 @@ public class Produto extends EntidadeAbstrata {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @ApiModelProperty(notes = "Marca de Produtos")
-    @JoinColumn(name = "id_marca_produto")
+    @JoinColumn(name = "marca_produto_id")
     private Marca marca;
 
     @ApiModelProperty(notes = "Modelo de Produtos")
     @Column(name = "modelo_produto")
     private String modelo;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @ApiModelProperty(notes = "Preco do produto")
-    @JoinColumn(name = "id_preco_produto")
+    @Embedded
     private Preco precoProduto;
+
+    @JsonIgnore
+    @Transient
+    public boolean isInativo() {
+        return !this.ativo;
+    }
 
 }

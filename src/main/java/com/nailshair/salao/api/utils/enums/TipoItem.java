@@ -2,9 +2,9 @@ package com.nailshair.salao.api.utils.enums;
 
 public enum TipoItem {
 
-    Produto,
-    Kit,
-    Insumo,
-    Brinde
+    PRODUTO {@Override public String toString(){return "Entrada"	;}},
+    KIT     {@Override public String toString(){return "Kid"        ;}},
+    INSUMO  {@Override public String toString(){return "Insumo"     ;}},
+    BRINDE  {@Override public String toString(){return "Brinde"     ;}}
 
 }

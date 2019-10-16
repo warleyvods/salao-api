@@ -1,5 +1,6 @@
 package com.nailshair.salao.api.venda.cliente.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nailshair.salao.api.utils.entidade.EntidadeAbstrata;
 import com.nailshair.salao.api.venda.cliente.utils.Contato;
 import com.nailshair.salao.api.venda.cliente.utils.DadosBancarios;
@@ -94,5 +95,11 @@ public class Pessoa extends EntidadeAbstrata {
     @JoinColumn(name = "historico_id")
     @ApiModelProperty(notes = "Dados Historicos da Pessoa/Cliente")
     private List<Historico> historico;
+
+    @JsonIgnore
+    @Transient
+    public boolean isInativo() {
+        return !this.ativo;
+    }
 
 }
