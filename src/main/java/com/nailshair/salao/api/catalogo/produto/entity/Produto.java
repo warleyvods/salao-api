@@ -20,11 +20,11 @@ import javax.persistence.*;
 public class Produto extends EntidadeAbstrata {
 
     @ApiModelProperty(notes = "Booleano de Produto")
-    @Column(name = "ativo", nullable = false)
+    @Column(name = "produto_ativo", nullable = false)
     private Boolean ativo;
 
     @ApiModelProperty(notes = "Código de barras do Produto")
-    @Column(name = "codigo_de_barras")
+    @Column(name = "codigo_de_barras_produto")
     private Integer codigoDeBarras;
 
     @ApiModelProperty(notes = "Nome do Produto/Descricao")
@@ -32,7 +32,7 @@ public class Produto extends EntidadeAbstrata {
     private String nome;
 
     @ApiModelProperty(notes = "Tipo de item do produto")
-    @Column(name="tipo_item")
+    @Column(name="tipo_item_produto")
     @Enumerated(EnumType.STRING)
     private TipoItem tipoItem;
 

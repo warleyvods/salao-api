@@ -21,7 +21,6 @@ public class ItensDoPedido implements Serializable {
     @JoinColumn(name = "produto_id")
     private Produto produto;
 
-
     private Integer quantidade;
 
 }
